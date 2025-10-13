@@ -76,9 +76,10 @@ dependencies {
     implementation(libs.androidx.material3.window.size)
     implementation(libs.androidx.lifecycle.viewModelCompose)
 
-
     // Room
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     // Project uses Kotlin source, so use Kotlin Symbol Processing (KSP)
     ksp(libs.androidx.room.compiler)
     // optional - Kotlin Extensions and Coroutines support for Room

@@ -5,9 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun BackpackMainScreen(
+fun StoryScreen(
     backpackUiState: BackpackUiState,
     modifier: Modifier = Modifier,
 ) {
-    Box(modifier = modifier)
+    Box(modifier = modifier) {
+    }
 }
