@@ -2,7 +2,7 @@ package com.mad.tabletopbackpack.ui
 
 import com.mad.tabletopbackpack.R
 
-enum class BackpackMainScreens(
+enum class BackpackScreenEnum(
     val title: Int,
     val icon: Int,
     val contentDescription: Int,

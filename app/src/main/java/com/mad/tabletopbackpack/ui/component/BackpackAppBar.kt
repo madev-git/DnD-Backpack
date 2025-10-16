@@ -14,13 +14,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.mad.tabletopbackpack.R
-import com.mad.tabletopbackpack.ui.BackpackMainScreens
+import com.mad.tabletopbackpack.ui.BackpackScreenEnum
 import com.mad.tabletopbackpack.ui.theme.TabletopBackpackTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BackpackAppBar(
-    currentScreen: BackpackMainScreens,
+    currentScreen: BackpackScreenEnum,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier,
@@ -53,7 +53,7 @@ private fun FlowFiAppBarNoBackNavigationPreview() {
     TabletopBackpackTheme {
         Surface {
             BackpackAppBar(
-                currentScreen = BackpackMainScreens.Character,
+                currentScreen = BackpackScreenEnum.Character,
                 canNavigateBack = false,
                 navigateUp = {},
             )
@@ -67,7 +67,7 @@ private fun FlowFiAppBarWithBackNavigationPreview() {
     TabletopBackpackTheme {
         Surface {
             BackpackAppBar(
-                currentScreen = BackpackMainScreens.Character,
+                currentScreen = BackpackScreenEnum.Character,
                 canNavigateBack = true,
                 navigateUp = {},
             )

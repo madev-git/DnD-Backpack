@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.mad.tabletopbackpack.ui.BackpackMainScreens
+import com.mad.tabletopbackpack.ui.BackpackScreenEnum
 import com.mad.tabletopbackpack.ui.theme.TabletopBackpackTheme
 
 @Composable
@@ -23,11 +23,11 @@ fun BackpackBottomNavigationBar(
     onClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val startDestination = BackpackMainScreens.Character
+    val startDestination = BackpackScreenEnum.Character
     var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }
 
     NavigationBar(windowInsets = NavigationBarDefaults.windowInsets, modifier = modifier) {
-        BackpackMainScreens.entries.forEachIndexed { index, destination ->
+        BackpackScreenEnum.entries.forEachIndexed { index, destination ->
             NavigationBarItem(
                 selected = selectedDestination == index,
                 onClick = {

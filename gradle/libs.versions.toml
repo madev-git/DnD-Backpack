@@ -11,6 +11,7 @@ espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.9.3"
 activityCompose = "1.11.0"
 composeBom = "2025.09.00"
+navigationTesting = "2.9.5"
 room = "2.8.0"
 material3WindowSizeClassAndroid = "1.4.0"
 androidx-lifecycle-compose = "2.9.4"
@@ -19,6 +20,7 @@ navigationCompose = "2.9.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigationTesting" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

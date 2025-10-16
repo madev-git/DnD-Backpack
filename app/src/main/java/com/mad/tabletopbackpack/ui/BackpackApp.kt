@@ -38,8 +38,8 @@ fun BackPackScreen(
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen =
-        BackpackMainScreens.valueOf(
-            backStackEntry?.destination?.route ?: BackpackMainScreens.Character.name,
+        BackpackScreenEnum.valueOf(
+            backStackEntry?.destination?.route ?: BackpackScreenEnum.Character.name,
         )
 
     Scaffold(
@@ -47,7 +47,10 @@ fun BackPackScreen(
             BackpackAppBar(
                 currentScreen = currentScreen,
                 canNavigateBack =
-                    navController.previousBackStackEntry != null && BackpackMainScreens.entries.any { it != currentScreen },
+                    navController.previousBackStackEntry != null &&
+                        screenIsAllowedToHaveBackButton(
+                            currentScreen,
+                        ),
                 navigateUp = { navController.navigateUp() },
             )
         },
@@ -61,10 +64,10 @@ fun BackPackScreen(
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = BackpackMainScreens.Character.name,
+            startDestination = BackpackScreenEnum.Character.name,
             modifier = Modifier.padding(innerPadding),
         ) {
-            composable(route = BackpackMainScreens.Character.name) {
+            composable(route = BackpackScreenEnum.Character.name) {
                 CharacterScreen(
                     backpackUiState = backpackUiState,
                     modifier =
@@ -73,7 +76,7 @@ fun BackPackScreen(
                             .fillMaxSize(),
                 )
             }
-            composable(route = BackpackMainScreens.Inventory.name) {
+            composable(route = BackpackScreenEnum.Inventory.name) {
                 InventoryScreen(
                     backpackUiState = backpackUiState,
                     modifier =
@@ -82,7 +85,7 @@ fun BackPackScreen(
                             .fillMaxSize(),
                 )
             }
-            composable(route = BackpackMainScreens.Resources.name) {
+            composable(route = BackpackScreenEnum.Resources.name) {
                 ResourcesScreen(
                     backpackUiState = backpackUiState,
                     modifier =
@@ -91,7 +94,7 @@ fun BackPackScreen(
                             .fillMaxSize(),
                 )
             }
-            composable(route = BackpackMainScreens.Story.name) {
+            composable(route = BackpackScreenEnum.Story.name) {
                 StoryScreen(
                     backpackUiState = backpackUiState,
                     modifier =
@@ -142,3 +145,9 @@ private fun BackpackMainScreenExpandedPreview() {
         }
     }
 }
+
+private fun screenIsAllowedToHaveBackButton(screen: BackpackScreenEnum): Boolean =
+    (
+        screen.name != BackpackScreenEnum.Character.name && screen.name != BackpackScreenEnum.Inventory.name &&
+            screen.name != BackpackScreenEnum.Resources.name && screen.name != BackpackScreenEnum.Story.name
+    )
