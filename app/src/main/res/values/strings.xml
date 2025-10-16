@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tabletop Backpack</string>
+    <string name="app_name">DnD Backpack</string>
     <string name="character_screen_title">Character</string>
     <string name="inventory_screen_title">Inventory</string>
     <string name="resources_screen_title">Resources</string>

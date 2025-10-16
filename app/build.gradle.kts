@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-    namespace = "com.mad.tabletopbackpack"
+    namespace = "com.mad.dndbackpack"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.mad.tabletopbackpack"
+        applicationId = "com.mad.dndbackpack"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

@@ -5,7 +5,19 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="BackpackMainScreenCompactPreview">
+      <SelectionState runConfigName="backpackNavHost_verifyStartDestination()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="backpackNavHost_verifyBackNavigationNotShownOnCharacterScreen()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="backpackNavHost_bottomBarClickInventoryIcon_navigateToInventoryScreen()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="BackpackScreenNavigationTest">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="backpackNavHost_verifyBackNavigationNotShownOnInventoryScreen()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

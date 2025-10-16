@@ -20,6 +20,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Tabletop Backpack"
+rootProject.name = "DnD Backpack"
 include(":app")
  
