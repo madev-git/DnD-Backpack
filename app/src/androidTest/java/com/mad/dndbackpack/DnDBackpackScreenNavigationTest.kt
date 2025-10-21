@@ -7,8 +7,8 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.performClick
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
-import com.mad.dndbackpack.ui.BackPackScreen
-import com.mad.dndbackpack.ui.DnDBackpackScreenEnum
+import com.mad.dndbackpack.ui.DnDBackPackScreen
+import com.mad.dndbackpack.ui.utils.DnDBackpackScreenEnum
 import com.mad.dndbackpack.ui.DnDBackpackUiState
 import org.junit.Before
 import org.junit.Rule
@@ -27,7 +27,7 @@ class DnDBackpackScreenNavigationTest {
             navController = TestNavHostController(LocalContext.current).apply {
                 navigatorProvider.addNavigator(ComposeNavigator())
             }
-            BackPackScreen(
+            DnDBackPackScreen(
                 windowSize = WindowWidthSizeClass.Companion.Compact,
                 dnDBackpackUiState = DnDBackpackUiState(),
                 navController = navController

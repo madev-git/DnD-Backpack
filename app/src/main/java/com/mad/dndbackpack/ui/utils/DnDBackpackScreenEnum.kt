@@ -1,4 +1,4 @@
-package com.mad.dndbackpack.ui
+package com.mad.dndbackpack.ui.utils
 
 import com.mad.dndbackpack.R
 

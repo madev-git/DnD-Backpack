@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.ui.Modifier
-import com.mad.dndbackpack.ui.BackpackApp
+import com.mad.dndbackpack.ui.DnDBackpackApp
 import com.mad.dndbackpack.ui.theme.DnDBackpackTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             DnDBackpackTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     val windowSize = calculateWindowSizeClass(this)
-                    BackpackApp(windowSize = windowSize.widthSizeClass)
+                    DnDBackpackApp(windowSize = windowSize.widthSizeClass)
                 }
             }
         }

@@ -5,4 +5,7 @@
     <string name="resources_screen_title">Resources</string>
     <string name="story_screen_title">Story</string>
     <string name="back_button">Back</string>
+    <string name="navigation_drawer">Navigation Drawer</string>
+    <string name="navigation_rail">Navigation Rail</string>
+    <string name="navigation_bottom">Navigation Bottom</string>
 </resources>

@@ -14,12 +14,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.mad.dndbackpack.R
-import com.mad.dndbackpack.ui.DnDBackpackScreenEnum
 import com.mad.dndbackpack.ui.theme.DnDBackpackTheme
+import com.mad.dndbackpack.ui.utils.DnDBackpackScreenEnum
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BackpackAppBar(
+fun DnDBackpackAppBar(
     currentScreen: DnDBackpackScreenEnum,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
@@ -49,10 +49,10 @@ fun BackpackAppBar(
 
 @Preview(showBackground = true)
 @Composable
-private fun FlowFiAppBarNoBackNavigationPreview() {
+private fun DnDBackpackAppBarNoBackNavigationPreview() {
     DnDBackpackTheme {
         Surface {
-            BackpackAppBar(
+            DnDBackpackAppBar(
                 currentScreen = DnDBackpackScreenEnum.Character,
                 canNavigateBack = false,
                 navigateUp = {},
@@ -63,10 +63,10 @@ private fun FlowFiAppBarNoBackNavigationPreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun FlowFiAppBarWithBackNavigationPreview() {
+private fun DnDBackpackAppBarWithBackNavigationPreview() {
     DnDBackpackTheme {
         Surface {
-            BackpackAppBar(
+            DnDBackpackAppBar(
                 currentScreen = DnDBackpackScreenEnum.Character,
                 canNavigateBack = true,
                 navigateUp = {},

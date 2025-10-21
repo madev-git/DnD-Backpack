@@ -1,17 +1,17 @@
 package com.mad.dndbackpack.ui.component
 
 import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarDefaults
-import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,16 +19,17 @@ import com.mad.dndbackpack.ui.theme.DnDBackpackTheme
 import com.mad.dndbackpack.ui.utils.DnDBackpackScreenEnum
 
 @Composable
-fun DnDBackpackBottomNavigationBar(
+fun DnDBackpackNavigationRail(
     onClick: (String) -> Unit,
+    containerColor: Color,
     modifier: Modifier = Modifier,
 ) {
     val startDestination = DnDBackpackScreenEnum.Character
     var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }
 
-    NavigationBar(windowInsets = NavigationBarDefaults.windowInsets, modifier = modifier) {
+    NavigationRail(containerColor = containerColor, modifier = modifier) {
         DnDBackpackScreenEnum.entries.forEachIndexed { index, destination ->
-            NavigationBarItem(
+            NavigationRailItem(
                 selected = selectedDestination == index,
                 onClick = {
                     onClick(destination.name)
@@ -40,7 +41,6 @@ fun DnDBackpackBottomNavigationBar(
                         contentDescription = stringResource(destination.contentDescription),
                     )
                 },
-                label = { Text(stringResource(destination.title)) },
             )
         }
     }
@@ -48,11 +48,12 @@ fun DnDBackpackBottomNavigationBar(
 
 @Preview(showBackground = true)
 @Composable
-private fun DnDBackpackBottomNavigationBarPreview() {
+private fun DnDBackpackNavigationRailPreview() {
     DnDBackpackTheme {
         Surface {
-            DnDBackpackBottomNavigationBar(
+            DnDBackpackNavigationRail(
                 onClick = {},
+                containerColor = MaterialTheme.colorScheme.inverseOnSurface,
             )
         }
     }
