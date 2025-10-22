@@ -13,19 +13,28 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
+      <SelectionState runConfigName="Compact tests">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
       <SelectionState runConfigName="backpackNavHost_verifyStartDestination()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="backpackNavHost_verifyBackNavigationNotShownOnCharacterScreen()">
+      <SelectionState runConfigName="DnDBackpackScreenNavigationTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="backpackNavHost_bottomBarClickInventoryIcon_navigateToInventoryScreen()">
+      <SelectionState runConfigName="DnDBackpackMediumScreenNavigationTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="BackpackScreenNavigationTest">
+      <SelectionState runConfigName="DnDBackpackExpandedScreenNavigationTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="backpackNavHost_verifyBackNavigationNotShownOnInventoryScreen()">
+      <SelectionState runConfigName="DnDBackpackCompactScreenNavigationTest">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="Medium tests">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="Expanded tests">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

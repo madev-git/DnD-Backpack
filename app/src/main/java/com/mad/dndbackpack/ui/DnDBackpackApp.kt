@@ -3,6 +3,7 @@ package com.mad.dndbackpack.ui
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -103,44 +104,59 @@ fun DnDBackPackScreen(
         },
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
-            val navigationRailContentDescription = stringResource(R.string.navigation_rail)
-            AnimatedVisibility(visible = navigationType == DnDBackpackNavigationType.NAVIGATION_RAIL) {
-                DnDBackpackNavigationRail(
-                    onClick = {
-                        navController.navigate(route = it)
-                    },
-                    containerColor = MaterialTheme.colorScheme.inverseOnSurface,
-                    modifier = Modifier.testTag(navigationRailContentDescription),
-                )
-                DnDBackpackScreenContent(
-                    dnDBackpackUiState = dnDBackpackUiState,
-                    navController = navController,
-                )
-            }
-
-            AnimatedVisibility(visible = navigationType == DnDBackpackNavigationType.PERMANENT_NAVIGATION_DRAWER) {
-                val navigationDrawerContentDescription = stringResource(R.string.navigation_drawer)
-                PermanentNavigationDrawer(
-                    drawerContent = {
-                        PermanentDrawerSheet(
-                            modifier = Modifier.width(dimensionResource(R.dimen.drawer_width)),
-                            drawerContainerColor = MaterialTheme.colorScheme.inverseOnSurface,
-                        ) {
-                            DnDBackpackNavigationDrawerContent(
+            when (navigationType) {
+                DnDBackpackNavigationType.NAVIGATION_RAIL -> {
+                    Row(modifier = Modifier.fillMaxSize()) {
+                        AnimatedVisibility(visible = true) {
+                            val navigationRailContentDescription =
+                                stringResource(R.string.navigation_rail)
+                            DnDBackpackNavigationRail(
                                 onClick = {
                                     navController.navigate(route = it)
                                 },
-                                modifier =
-                                    Modifier
-                                        .wrapContentWidth()
-                                        .fillMaxHeight()
-                                        .background(MaterialTheme.colorScheme.inverseOnSurface)
-                                        .padding(dimensionResource(R.dimen.drawer_padding_content)),
+                                containerColor = MaterialTheme.colorScheme.inverseOnSurface,
+                                modifier = Modifier.testTag(navigationRailContentDescription),
                             )
                         }
-                    },
-                    modifier = Modifier.testTag(navigationDrawerContentDescription),
-                ) {
+                        DnDBackpackScreenContent(
+                            dnDBackpackUiState = dnDBackpackUiState,
+                            navController = navController,
+                        )
+                    }
+                }
+
+                DnDBackpackNavigationType.PERMANENT_NAVIGATION_DRAWER -> {
+                    val navigationDrawerContentDescription =
+                        stringResource(R.string.navigation_drawer)
+                    PermanentNavigationDrawer(
+                        drawerContent = {
+                            PermanentDrawerSheet(
+                                modifier = Modifier.width(dimensionResource(R.dimen.drawer_width)),
+                                drawerContainerColor = MaterialTheme.colorScheme.inverseOnSurface,
+                            ) {
+                                DnDBackpackNavigationDrawerContent(
+                                    onClick = {
+                                        navController.navigate(route = it)
+                                    },
+                                    modifier =
+                                        Modifier
+                                            .wrapContentWidth()
+                                            .fillMaxHeight()
+                                            .background(MaterialTheme.colorScheme.inverseOnSurface)
+                                            .padding(dimensionResource(R.dimen.drawer_padding_content)),
+                                )
+                            }
+                        },
+                        modifier = Modifier.testTag(navigationDrawerContentDescription),
+                    ) {
+                        DnDBackpackScreenContent(
+                            dnDBackpackUiState = dnDBackpackUiState,
+                            navController = navController,
+                        )
+                    }
+                }
+
+                else -> {
                     DnDBackpackScreenContent(
                         dnDBackpackUiState = dnDBackpackUiState,
                         navController = navController,
