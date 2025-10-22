@@ -5,7 +5,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.performClick
 import com.mad.dndbackpack.ui.DnDBackPackScreen
 import com.mad.dndbackpack.ui.DnDBackpackUiState
-import com.mad.dndbackpack.ui.utils.DnDBackpackScreenEnum
 import org.junit.Before
 import org.junit.Test
 
@@ -29,68 +28,6 @@ class DnDBackpackMediumScreenNavigationTest : DnDBackpackBaseNavigationTest() {
         composeTestRule.onNodeWithTagForStringId(
             R.string.navigation_rail
         ).assertExists()
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_verifyStartDestination() {
-        navController.assertCurrentRouteName(DnDBackpackScreenEnum.Character.name)
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_verifyBackNavigationNotShownOnCharacterScreen() {
-        assertNoBackButton()
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_navigationRailClickInventoryItem_navigateToInventoryScreen() {
-        navigateToInventoryScreen()
-        navController.assertCurrentRouteName(DnDBackpackScreenEnum.Inventory.name)
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_verifyBackNavigationNotShownOnInventoryScreen() {
-        navigateToInventoryScreen()
-        assertNoBackButton()
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_navigationRailClickCharacterItem_navigateToCharacterScreen() {
-        navigateToInventoryScreen()
-        navigateToCharacterScreen()
-        navController.assertCurrentRouteName(DnDBackpackScreenEnum.Character.name)
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_navigationRailClickResourcesItem_navigateToResourcesScreen() {
-        navigateToResourcesScreen()
-        navController.assertCurrentRouteName(DnDBackpackScreenEnum.Resources.name)
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_verifyBackNavigationNotShownOnResourcesScreen() {
-        navigateToResourcesScreen()
-        assertNoBackButton()
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_navigationRailClickStoryItem_navigateToStoryScreen() {
-        navigateToStoryScreen()
-        navController.assertCurrentRouteName(DnDBackpackScreenEnum.Story.name)
-    }
-
-    @Test
-    @TestMediumWidth
-    fun backpackNavHost_verifyBackNavigationNotShownOnStoryScreen() {
-        navigateToStoryScreen()
-        assertNoBackButton()
     }
 
     override fun navigateToCharacterScreen() {
